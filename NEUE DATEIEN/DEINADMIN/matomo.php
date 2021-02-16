@@ -6,7 +6,7 @@
  * @copyright Copyright 2003-2021 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: matomo.php 2021-02-11 22:14:40Z webchills $
+ * @version $Id: matomo.php 2021-02-16 09:21:40Z webchills $
  */
 
 require('includes/application_top.php');
@@ -78,9 +78,11 @@ function check_form() {
         </td>
     </tr>
     <tr>
-        <td><iframe src="https://<?php echo MATOMO_URL; ?>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<?php echo MATOMO_ID; ?>&period=<?php echo MATOMO_REPORT_PERIOD; ?>&date=<?php echo MATOMO_REPORT_DATE; ?>&token_auth=<?php echo MATOMO_TOKEN_AUTH; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%"></iframe></td>
+        <td><iframe id="matomoframe" src="https://<?php echo MATOMO_URL; ?>/index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite=<?php echo MATOMO_ID; ?>&period=<?php echo MATOMO_REPORT_PERIOD; ?>&date=<?php echo MATOMO_REPORT_DATE; ?>&token_auth=<?php echo MATOMO_TOKEN_AUTH; ?>" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%"></iframe></td>
     </tr>
 </table>
+<script language="javascript" src="includes/javascript/iframeResizer.min.js"></script>
+<script>iFrameResize({ log: true }, '#matomoframe')</script>
 <!-- body_eof //-->
 
 <!-- footer //-->
